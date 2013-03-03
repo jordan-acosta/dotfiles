@@ -7,25 +7,22 @@
 ### Variables
 
 dir=~/dotfiles
-olddir=~/dotfiles_old
+backup=~/dotfiles_backup
 files="vimrc gitconfig"
 
 ### Actions
 
 # create dotfiles_old in ~
-echo "Creating $olddir for backup of any existing dotfiles in ~"
-mkdir -p $olddir
-echo "...done"
-
-# change to the dotfiles directory
-echo "Changing to the $dir directory"
-cd $dir
+echo "Creating $backup for backup of any existing dotfiles in ~"
+mkdir -p $backup
 echo "...done"
 
 # move any existing dotfiles in ~ to ~/dotfiles_old, and create symlinks
+echo "Backing up existing files and creating symlinks:"
 for file in $files; do
-	echo "Moving any existing dotfiles from ~ to $olddir."
-	mv ~/.$file ~/dotfiles_old/.
-	echo "Creating symlink to $file in ~."
+	echo "Moving $file from ~ to $backup"
+	mv ~/.$file $backup
+	echo "Creating symlink to new $file in ~."
 	ln -s $dir/$file ~/.$file
 done
+echo "...done"
