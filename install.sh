@@ -7,7 +7,7 @@
 ### Variables
 
 dir=~/dotfiles
-backup=~/dotfiles_backup
+backup=~/dotfiles-backup
 files="vimrc gitconfig"
 
 ### Actions
