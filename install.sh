@@ -8,7 +8,7 @@
 
 dir=~/dotfiles
 backup=~/dotfiles-backup
-files="vimrc gitconfig"
+files="vimrc gitconfig bashrc"
 
 ### Actions
 
