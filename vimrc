@@ -6,7 +6,6 @@ color elflord
 set ruler " Show line & column number
 set number
 set hlsearch
-set cursorline
 
 " Indentation
 set autoindent
@@ -29,6 +28,10 @@ inoremap <Down> <C-o>gj
 inoremap <Up> <C-o>gk
 vnoremap <Down> gj
 vnoremap <Up> gk
+
+" Omni completion
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
 
 " Other
 set history=1000
