@@ -8,7 +8,7 @@
 
 dir=~/dotfiles
 backup=~/dotfiles-backup
-files="vimrc gitconfig bashrc"
+files="vimrc gitconfig bashrc tmux.conf"
 
 ### Actions
 
