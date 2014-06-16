@@ -107,7 +107,8 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 # nvm for multiple versions of nodejs
-. ~/nvm/nvm.sh
+test -a ~/nvm/nvm.sh &&
+    . ~/nvm/nvm.sh
 
 # http://henrik.nyh.se/2008/12/git-dirty-prompt
 # http://www.simplisticcomplexity.com/2008/03/13/show-your-git-branch-name-in-your-prompt/
