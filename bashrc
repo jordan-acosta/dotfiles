@@ -136,3 +136,7 @@ PATH=$PATH:$HOME/bin
 # use vim if available
 [ command -v vim >/dev/null 2>&1 ] &&
     export EDITOR=vim
+
+# load ypbot environment if present
+[ -f ~/.bash_ypbot ] &&
+    . ~/.bash_ypbot
