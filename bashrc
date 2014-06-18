@@ -132,3 +132,7 @@ export PS1='\u@\h \[\033[1;33m\]\w\[\033[0m\]$(parse_git_branch)$ '
 
 # user directory path
 PATH=$PATH:$HOME/bin
+
+# use vim if available
+[ command -v vim >/dev/null 2>&1 ] &&
+    export EDITOR=vim
