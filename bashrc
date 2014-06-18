@@ -12,9 +12,10 @@ HISTCONTROL=ignoreboth
 # append to the history file, don't overwrite it
 shopt -s histappend
 
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+# eternal command history
+HISTSIZE=
+HISTFILESIZE=
+HISTFILE=~/.bash_eternal_history
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
