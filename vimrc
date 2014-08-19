@@ -36,6 +36,13 @@ set omnifunc=syntaxcomplete#Complete
 " Other
 set history=1000
 
+" golang
+filetype off
+filetype plugin indent off
+set runtimepath+=/usr/local/Cellar/go/1.2.2/libexec/misc/vim
+filetype plugin indent on
+syntax on
+
 " Switch colon and semicolon
 "nore ; :
 "nore : ;
