@@ -107,6 +107,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 source /usr/share/doc/tmux-1.5/examples/bash_completion_tmux.sh
+source /etc/bash_completion.d/git
 
 # fix tmux ssh sessions
 SOCK="/tmp/ssh-agent-$USER-screen"
