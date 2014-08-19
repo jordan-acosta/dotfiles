@@ -137,6 +137,10 @@ PATH=$PATH:$HOME/bin
 [ command -v vim >/dev/null 2>&1 ] &&
     export EDITOR=vim
 
+# golang
+export GOPATH=$HOME/go
+PATH=$PATH:$GOPATH/bin
+
 # load ypbot environment if present
 [ -f ~/.bash_ypbot ] &&
     . ~/.bash_ypbot
