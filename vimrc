@@ -39,7 +39,7 @@ set history=1000
 " golang
 filetype off
 filetype plugin indent off
-set runtimepath+=/usr/local/Cellar/go/1.2.2/libexec/misc/vim
+set runtimepath+=/pkg/packages/go1.1.2/misc/vim
 filetype plugin indent on
 syntax on
 
