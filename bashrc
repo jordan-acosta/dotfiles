@@ -107,6 +107,15 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+# fix tmux ssh sessions
+SOCK="/tmp/ssh-agent-$USER-screen"
+if test $SSH_AUTH_SOCK && [ $SSH_AUTH_SOCK != $SOCK ]
+then
+    rm -f /tmp/ssh-agent-$USER-screen
+    ln -sf $SSH_AUTH_SOCK $SOCK
+    export SSH_AUTH_SOCK=$SOCK
+fi
+
 # nvm for multiple versions of nodejs
 test -a ~/nvm/nvm.sh &&
     . ~/nvm/nvm.sh
