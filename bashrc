@@ -107,11 +107,6 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-[ -f /etc/bash_completion.d/git ] &&
-    . /etc/bash_completion.d/git
-[ -f /usr/share/doc/tmux-1.4/examples/bash_completion_tmux.sh ] &&
-    . /usr/share/doc/tmux-1.4/examples/bash_completion_tmux.sh
-
 # nvm for multiple versions of nodejs
 test -a ~/nvm/nvm.sh &&
     . ~/nvm/nvm.sh
