@@ -35,6 +35,8 @@ set omnifunc=syntaxcomplete#Complete
 
 " Other
 set history=1000
+let g:netrw_liststyle=3
+set wildmenu
 
 " golang
 filetype off
