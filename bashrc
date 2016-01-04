@@ -149,6 +149,7 @@ PATH=$PATH:$HOME/bin
 # golang
 export GOPATH=$HOME/go
 PATH=$PATH:$GOPATH/bin
+export GO15VENDOREXPERIMENT=1
 
 # load ypbot environment if present
 [ -f ~/.bash_ypbot ] &&
