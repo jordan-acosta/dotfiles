@@ -42,3 +42,5 @@
 [user]
     name = Jordan Acosta
     email = jordan@solfo.com
+[url "git@github.sol:"]
+	insteadof = https://github.sol/
