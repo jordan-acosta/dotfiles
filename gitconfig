@@ -44,3 +44,5 @@
     email = jordan@solfo.com
 [url "git@github.sol:"]
 	insteadof = https://github.sol/
+[push]
+	default = simple
