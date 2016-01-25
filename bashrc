@@ -151,10 +151,10 @@ export GOPATH=$HOME/go
 PATH=$PATH:$GOPATH/bin
 export GO15VENDOREXPERIMENT=1
 
-# load ypbot environment if present
-[ -f ~/.bash_ypbot ] &&
-    . ~/.bash_ypbot
-
 # docker
-docker-machine start default
-eval `docker-machine env default`
+docker-machine start default >/dev/null
+eval "$(docker-machine env default)"
+
+# load local environment if available
+[ -f ~/.bash_local ] &&
+    . ~/.bash_local
