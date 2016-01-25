@@ -154,3 +154,7 @@ export GO15VENDOREXPERIMENT=1
 # load ypbot environment if present
 [ -f ~/.bash_ypbot ] &&
     . ~/.bash_ypbot
+
+# docker
+docker-machine start default
+eval `docker-machine env default`
