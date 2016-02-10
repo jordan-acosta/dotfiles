@@ -38,13 +38,6 @@ set history=1000
 let g:netrw_liststyle=3
 set wildmenu
 
-" golang
-filetype off
-filetype plugin indent off
-set runtimepath+=/pkg/packages/go1.1.2/misc/vim
-filetype plugin indent on
-syntax on
-
 " vim-plug
 " can specify path if needed: call plug#begin()
 call plug#begin()
