@@ -154,6 +154,14 @@ export GO15VENDOREXPERIMENT=1
 # docker
 docker-machine start default >/dev/null
 eval "$(docker-machine env default)"
+dmenv () {
+    if [ -z "$1" ]
+    then
+        return
+    fi
+    eval "$(docker-machine env $1)"
+    echo "docker-machine env for $1 set"
+}
 
 # load local environment if available
 [ -f ~/.bash_local ] &&
