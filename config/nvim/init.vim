@@ -39,15 +39,15 @@ let g:netrw_liststyle=3
 set wildmenu
 
 " vim-plug
-" can specify path if needed: call plug#begin()
 call plug#begin()
 Plug 'vim-airline/vim-airline'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'fatih/vim-go'
 Plug 'pangloss/vim-javascript'
-Plug 'vim-airline/vim-airline'
-" Plug 'easymotion/vim-easymotion'
+Plug 'elzr/vim-json'
+Plug 'airblade/vim-gitgutter'
 " Plug 'scrooloose/syntastic'
+" Plug 'easymotion/vim-easymotion'
 call plug#end()
 
 " Switch colon and semicolon
