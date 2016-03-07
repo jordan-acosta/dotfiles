@@ -152,6 +152,8 @@ PATH=$PATH:$GOPATH/bin
 export GO15VENDOREXPERIMENT=1
 
 # docker
+alias dm-rmi='docker images -fq "dangling=true" | xargs docker rmi'
+alias dm-rm='docker ps -qa | xargs docker rm'
 docker-machine start default >/dev/null
 eval "$(docker-machine env default)"
 dmenv () {
