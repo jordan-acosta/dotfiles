@@ -42,30 +42,38 @@ set wildmenu
 call plug#begin()
 Plug 'vim-airline/vim-airline'
 Plug 'ConradIrwin/vim-bracketed-paste'
-Plug 'fatih/vim-go'
-Plug 'pangloss/vim-javascript'
-Plug 'elzr/vim-json'
 Plug 'airblade/vim-gitgutter'
-" Plug 'scrooloose/syntastic'
-" Plug 'easymotion/vim-easymotion'
+
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+" Stick to defaults, don't use <tab>,
+" ultisnips uses <tab>
+let g:ycm_key_list_select_completion = ['<C-n>']
+let g:ycm_key_list_previous_completion = ['<C-p>']
+
+Plug 'scrooloose/syntastic'
+let g:syntastic_javascript_checkers = ['eslint']
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
+Plug 'fatih/vim-go'
+
+Plug 'pangloss/vim-javascript'
+Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+Plug 'elzr/vim-json'
 call plug#end()
+
+" Concealing
+set conceallevel=1
+set concealcursor=nvic
 
 " Switch colon and semicolon
 "nore ; :
 "nore : ;
-
-" Enable mouse support
-"set mouse=a
-
-" Vundle
-"set nocompatible
-"filetype off
-"set rtp+=~/.vim/bundle/vundle/
-"call vundle#rc()
-"Bundle 'gmarik/vundle'
-
-" Github Vundle bundles
-"Bundle 'Lokaltog/vim-powerline'
-
-" End Vundle
-"filetype plugin indent on
