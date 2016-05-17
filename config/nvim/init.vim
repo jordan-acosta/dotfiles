@@ -1,14 +1,11 @@
 " Syntax highlighting
-syntax on
 color elflord
 
 " Interface
 set ruler " Show line & column number
 set number
-set hlsearch
 
 " Indentation
-set autoindent
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
@@ -34,7 +31,6 @@ filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 
 " Other
-set history=1000
 let g:netrw_liststyle=3
 set wildmenu
 
