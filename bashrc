@@ -83,7 +83,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-alias ll='ls -alF'
+alias ll='ls -AlF'
 alias la='ls -A'
 alias l='ls -CF'
 
@@ -148,23 +148,47 @@ PATH=$PATH:$HOME/bin
 
 # golang
 export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
 PATH=$PATH:$GOPATH/bin
 export GO15VENDOREXPERIMENT=1
 
 # docker
-alias dm-rmi='docker images -fq "dangling=true" | xargs docker rmi'
-alias dm-rm='docker ps -qa | xargs docker rm'
-docker-machine start default >/dev/null
-eval "$(docker-machine env default)"
-dmenv () {
-    if [ -z "$1" ]
-    then
-        return
-    fi
-    eval "$(docker-machine env $1)"
-    echo "docker-machine env for $1 set"
-}
+# re-enable later
+#alias dm-rmi='docker images -fq "dangling=true" | xargs docker rmi'
+#alias dm-rm='docker ps -qa | xargs docker rm'
+#docker-machine start default >/dev/null
+#eval "$(docker-machine env default)"
+#dmenv () {
+#    if [ -z "$1" ]
+#    then
+#        return
+#    fi
+#    eval "$(docker-machine env $1)"
+#    echo "docker-machine env for $1 set"
+#}
 
 # load local environment if available
 [ -f ~/.bash_local ] &&
     . ~/.bash_local
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+# ruby junk
+export PATH="/Users/jordan/.rbenv/shims:${PATH}"
+export RBENV_SHELL=bash
+source '/usr/local/Cellar/rbenv/1.0.0/libexec/../completions/rbenv.bash'
+command rbenv rehash 2>/dev/null
+rbenv() {
+  local command
+  command="$1"
+  if [ "$#" -gt 0 ]; then
+    shift
+  fi
+
+  case "$command" in
+  rehash|shell)
+    eval "$(rbenv "sh-$command" "$@")";;
+  *)
+    command rbenv "$command" "$@";;
+  esac
+}

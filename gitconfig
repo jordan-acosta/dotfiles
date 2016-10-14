@@ -42,7 +42,7 @@
 [user]
     name = Jordan Acosta
     email = jordan@solfo.com
-[url "git@github.sol:"]
-	insteadof = https://github.sol/
+[url "git@github.com:"]
+	insteadof = https://github.com/
 [push]
 	default = simple

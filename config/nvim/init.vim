@@ -30,15 +30,22 @@ vnoremap <Up> gk
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 
-" Other
-let g:netrw_liststyle=3
+" command bar
 set wildmenu
+
+" netrw
+let g:netrw_preview=1
+let g:netrw_liststyle=1
+let g:netrw_winsize=30
+let g:netrw_banner=0
+set autochdir
 
 " vim-plug
 call plug#begin()
 Plug 'vim-airline/vim-airline'
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-surround'
 
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 " Stick to defaults, don't use <tab>,
