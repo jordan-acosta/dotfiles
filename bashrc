@@ -195,3 +195,8 @@ rbenv() {
 
 # why homebrew why
 export HOMEBREW_GITHUB_API_TOKEN="e117886c47229132f35cf59c31a4076f3d84251d"
+
+# aws env
+if [ -f ~/.aws/env.bash ]; then
+    . ~/.aws/env.bash
+fi
