@@ -6,7 +6,7 @@
 
 # networking
 [http]
-    sslVerify = false
+	sslVerify = true
 
 # difftool
 [diff]
