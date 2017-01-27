@@ -27,8 +27,8 @@ vnoremap <Down> gj
 vnoremap <Up> gk
 
 " Omni completion
-filetype plugin on
-set omnifunc=syntaxcomplete#Complete
+"filetype plugin on
+"set omnifunc=syntaxcomplete#Complete
 
 " command bar
 set wildmenu
@@ -39,45 +39,39 @@ let g:netrw_liststyle=1
 let g:netrw_winsize=30
 let g:netrw_banner=0
 let g:netrw_rmdir_cmd='rm -r'
+let g:netrw_keepdir= 0
 set autochdir
 
 " vim-plug
 call plug#begin()
-Plug 'vim-airline/vim-airline'
-Plug 'ConradIrwin/vim-bracketed-paste'
+
+" UI
+
+Plug 'itchyny/lightline.vim'
 Plug 'airblade/vim-gitgutter'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
+" utility
+
+Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'tpope/vim-surround'
+"Plug 'SirVer/ultisnips'
+"Plug 'honza/vim-snippets'
+"Plug 'neomake/neomake'
 
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-" Stick to defaults, don't use <tab>,
-" ultisnips uses <tab>
-let g:ycm_key_list_select_completion = ['<C-n>']
-let g:ycm_key_list_previous_completion = ['<C-p>']
-
-Plug 'scrooloose/syntastic'
-let g:syntastic_javascript_checkers = ['eslint']
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-
-Plug 'fatih/vim-go'
+" language support
 
 Plug 'pangloss/vim-javascript'
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+Plug 'carlitux/deoplete-ternjs', { 'do': 'yarn install -g tern' }
+
 Plug 'elzr/vim-json'
+
+Plug 'fatih/vim-go'
 call plug#end()
+
+" deoplete
+let g:deoplete#enable_at_startup = 1
 
 " Concealing
 set conceallevel=1
 set concealcursor=nvic
-
-" Switch colon and semicolon
-"nore ; :
-"nore : ;
