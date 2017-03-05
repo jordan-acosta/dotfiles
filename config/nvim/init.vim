@@ -62,7 +62,7 @@ Plug 'tpope/vim-surround'
 " language support
 
 Plug 'pangloss/vim-javascript'
-Plug 'carlitux/deoplete-ternjs', { 'do': 'yarn install -g tern' }
+Plug 'carlitux/deoplete-ternjs', { 'do': 'yarn global add tern' }
 
 Plug 'elzr/vim-json'
 
