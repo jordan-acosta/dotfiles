@@ -106,10 +106,9 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
-
 # bash completion on OSX (with Homebrew)
-if [ -f `brew --prefix`/etc/bash_completion ] && ! shopt -oq posix; then
-    . `brew --prefix`/etc/bash_completion
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
 fi
 
 # fix tmux ssh sessions
@@ -135,7 +134,6 @@ fi
 # http://www.simplisticcomplexity.com/2008/03/13/show-your-git-branch-name-in-your-prompt/
 #   username@Machine ~/dev/dir[master]$   # clean working directory
 #   username@Machine ~/dev/dir[master*]$  # dirty working directory
-
 function parse_git_dirty {
   [[ $(git status -z) != "" ]] && echo "*"
 }
