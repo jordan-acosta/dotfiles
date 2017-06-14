@@ -180,7 +180,8 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 # ruby junk
 export PATH="/Users/jordan/.rbenv/shims:${PATH}"
 export RBENV_SHELL=bash
-source '/usr/local/Cellar/rbenv/1.0.0/libexec/../completions/rbenv.bash'
+[ -f /usr/local/Cellar/rbenv/1.0.0/libexec/../completions/rbenv.bash ] &&
+    . /usr/local/Cellar/rbenv/1.0.0/libexec/../completions/rbenv.bash
 command rbenv rehash 2>/dev/null
 rbenv() {
   local command
