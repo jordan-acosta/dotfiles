@@ -67,6 +67,7 @@ Plug 'carlitux/deoplete-ternjs', { 'do': 'yarn global add tern' }
 Plug 'elzr/vim-json'
 
 Plug 'fatih/vim-go'
+Plug 'fatih/vim-hclfmt', { 'do': 'go get github.com/fatih/hclfmt' }
 call plug#end()
 
 " deoplete
