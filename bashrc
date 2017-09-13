@@ -125,10 +125,10 @@ test -a ~/nvm/nvm.sh &&
     . ~/nvm/nvm.sh
 
 # add yarn global bin folder to path
-#YARN_BIN=$(yarn global bin)
-#if [ -d $YARN_BIN ]; then
-#    PATH=$PATH:$YARN_BIN
-#fi
+YARN_BIN=$(yarn global bin)
+if [ -d $YARN_BIN ]; then
+    PATH=$PATH:$YARN_BIN
+fi
 
 # http://henrik.nyh.se/2008/12/git-dirty-prompt
 # http://www.simplisticcomplexity.com/2008/03/13/show-your-git-branch-name-in-your-prompt/
