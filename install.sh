@@ -9,7 +9,7 @@ dir=~/dotfiles
 
 # link dotfiles
 backup=~/dotfiles-backup
-files="vimrc gitconfig bashrc profile tmux.conf"
+files="vimrc gitconfig bashrc profile tmux.conf yarnrc"
 
 echo "Creating $backup for backup of any existing dotfiles in ~"
 mkdir -p $backup
