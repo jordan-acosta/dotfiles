@@ -205,3 +205,6 @@ export HOMEBREW_GITHUB_API_TOKEN="e117886c47229132f35cf59c31a4076f3d84251d"
 if [ -f ~/.aws/env.bash ]; then
     . ~/.aws/env.bash
 fi
+
+#pkg-config wat
+export PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig
