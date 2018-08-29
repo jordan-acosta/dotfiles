@@ -46,13 +46,11 @@ set autochdir
 call plug#begin()
 
 " UI
-
 Plug 'itchyny/lightline.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " utility
-
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'tpope/vim-surround'
 "Plug 'SirVer/ultisnips'
@@ -60,14 +58,12 @@ Plug 'tpope/vim-surround'
 "Plug 'neomake/neomake'
 
 " language support
-
+Plug 'fatih/vim-go'
 Plug 'pangloss/vim-javascript'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'yarn global add tern' }
-
 Plug 'elzr/vim-json'
-
-Plug 'fatih/vim-go'
 Plug 'fatih/vim-hclfmt', { 'do': 'go get github.com/fatih/hclfmt' }
+Plug 'jparise/vim-graphql'
 call plug#end()
 
 " deoplete
