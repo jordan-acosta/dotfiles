@@ -151,10 +151,10 @@ PATH=$PATH:$HOME/bin
     export EDITOR=vim
 
 # golang
-export GOPATH=$HOME/go
-export GOBIN=$GOPATH/bin
-PATH=$PATH:$GOPATH/bin
-export GO15VENDOREXPERIMENT=1
+# export GOPATH=$HOME/go
+# export GOBIN=$GOPATH/bin
+# PATH=$PATH:$GOPATH/bin
+# export GO15VENDOREXPERIMENT=1
 
 # docker
 # re-enable later
