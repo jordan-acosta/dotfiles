@@ -151,15 +151,15 @@ PATH=$PATH:$HOME/bin
     export EDITOR=vim
 
 # golang
-export GOPATH=$HOME/go
-export GOBIN=$GOPATH/bin
-PATH=$PATH:$GOPATH/bin
-export GO15VENDOREXPERIMENT=1
+# export GOPATH=$HOME/go
+# export GOBIN=$GOPATH/bin
+# PATH=$PATH:$GOPATH/bin
+# export GO15VENDOREXPERIMENT=1
 
 # docker
-# re-enable later
-#alias dm-rmi='docker images -fq "dangling=true" | xargs docker rmi'
-#alias dm-rm='docker ps -qa | xargs docker rm'
+alias docker-rmi-all='docker images --quiet --all | xargs docker rmi --force'
+alias docker-rm-all='docker ps --quiet --all | xargs docker rm --force'
+alias docker-clear='docker-rm-all && docker-rmi-all'
 #docker-machine start default >/dev/null
 #eval "$(docker-machine env default)"
 #dmenv () {

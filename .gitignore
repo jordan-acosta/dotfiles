@@ -1,3 +1,11 @@
+# neovim
 config/nvim/plugged
 .netrwhist
 plug.vim.old
+
+# yarn
+config/yarn
+yarnrc
+
+#configstore
+config/configstore
