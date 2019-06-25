@@ -151,9 +151,9 @@ PATH=$PATH:$HOME/bin
     export EDITOR=vim
 
 # golang
-# export GOPATH=$HOME/go
-# export GOBIN=$GOPATH/bin
-# PATH=$PATH:$GOPATH/bin
+export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
+PATH=$PATH:$GOPATH/bin
 # export GO15VENDOREXPERIMENT=1
 
 # docker
@@ -198,6 +198,9 @@ rbenv() {
   esac
 }
 
+# python junk
+PATH="$PATH:$HOME/Library/Python/2.7/bin"
+
 # why homebrew why
 export HOMEBREW_GITHUB_API_TOKEN="e117886c47229132f35cf59c31a4076f3d84251d"
 
@@ -208,3 +211,7 @@ fi
 
 #pkg-config wat
 export PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig
+
+# nvm ugh
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
