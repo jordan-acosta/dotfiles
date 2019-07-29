@@ -6,10 +6,12 @@ set ruler " Show line & column number
 set number
 
 " Indentation
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 set expandtab
+
+" TODO add custom function for resetting tab widths
 
 " Code Folding
 set foldmethod=indent " fold based on indent
