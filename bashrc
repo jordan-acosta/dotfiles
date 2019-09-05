@@ -106,10 +106,6 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
-# bash completion on OSX (with Homebrew)
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
-fi
 
 # fix tmux ssh sessions
 SOCK="/tmp/ssh-agent-$USER-screen"
@@ -120,9 +116,6 @@ then
     export SSH_AUTH_SOCK=$SOCK
 fi
 
-# nvm for multiple versions of nodejs
-test -a ~/nvm/nvm.sh &&
-    . ~/nvm/nvm.sh
 
 # add yarn global bin folder to path
 YARN_BIN=$(yarn global bin)
@@ -146,15 +139,16 @@ export PS1='\u@\h/\W$(parse_git_branch)$ '
 # user directory path
 PATH=$PATH:$HOME/bin
 
-# use vim if available
+# default editor is neovim, fallback to vim
 [ command -v vim >/dev/null 2>&1 ] &&
     export EDITOR=vim
+[ command -v nvim >/dev/null 2>&1 ] &&
+    export EDITOR=nvim
 
 # golang
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 PATH=$PATH:$GOPATH/bin
-# export GO15VENDOREXPERIMENT=1
 
 # docker
 alias docker-rmi-all='docker images --quiet --all | xargs docker rmi --force'
@@ -171,38 +165,18 @@ alias docker-clear='docker-rm-all && docker-rmi-all'
 #    echo "docker-machine env for $1 set"
 #}
 
-# load local environment if available
-[ -f ~/.bash_local ] &&
-    . ~/.bash_local
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
-# ruby junk
-export PATH="/Users/jordan/.rbenv/shims:${PATH}"
-export RBENV_SHELL=bash
-[ -f /usr/local/Cellar/rbenv/1.0.0/libexec/../completions/rbenv.bash ] &&
-    . /usr/local/Cellar/rbenv/1.0.0/libexec/../completions/rbenv.bash
-command rbenv rehash 2>/dev/null
-rbenv() {
-  local command
-  command="$1"
-  if [ "$#" -gt 0 ]; then
-    shift
-  fi
-
-  case "$command" in
-  rehash|shell)
-    eval "$(rbenv "sh-$command" "$@")";;
-  *)
-    command rbenv "$command" "$@";;
-  esac
-}
+# python junk
+PATH="$PATH:$HOME/Library/Python/2.7/bin"
 
 # python junk
 PATH="$PATH:$HOME/Library/Python/2.7/bin"
 
 # why homebrew why
 export HOMEBREW_GITHUB_API_TOKEN="e117886c47229132f35cf59c31a4076f3d84251d"
+export PATH="/usr/local/opt/terraform@0.11/bin:$PATH"
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
 
 # aws env
 if [ -f ~/.aws/env.bash ]; then
@@ -213,5 +187,34 @@ fi
 export PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig
 
 # nvm ugh
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
+# export NVM_DIR=~/.nvm
+# source $(brew --prefix nvm)/nvm.sh
+# test -a ~/nvm/nvm.sh &&
+#     . ~/nvm/nvm.sh
+
+# export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+# ruby junk
+# export PATH="/Users/jordan/.rbenv/shims:${PATH}"
+# export RBENV_SHELL=bash
+# [ -f /usr/local/Cellar/rbenv/1.0.0/libexec/../completions/rbenv.bash ] &&
+#     . /usr/local/Cellar/rbenv/1.0.0/libexec/../completions/rbenv.bash
+# command rbenv rehash 2>/dev/null
+# rbenv() {
+#   local command
+#   command="$1"
+#   if [ "$#" -gt 0 ]; then
+#     shift
+#   fi
+# 
+#   case "$command" in
+#   rehash|shell)
+#     eval "$(rbenv "sh-$command" "$@")";;
+#   *)
+#     command rbenv "$command" "$@";;
+#   esac
+# }
+
+# load optional local environment
+[ -f ~/.bash_local ] &&
+    . ~/.bash_local
