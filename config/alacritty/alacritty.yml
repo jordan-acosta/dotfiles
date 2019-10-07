@@ -273,8 +273,8 @@ schemes:
         white:   '0xf8f8ff'
     borland: &borland
       primary:
-        background: '0x000000'
-        foreground: '0xeaeaea'
+        background: '0x1C1EB1'
+        foreground: '0xF7FB6C'
       normal:
         black:   '0x000000'
         red:     '0xd54e53'
@@ -295,7 +295,7 @@ schemes:
         white:   '0xffffff'
       indexed_colors: []
 
-colors: *falcon
+colors: *borland
 
 # Visual Bell
 #
@@ -580,7 +580,7 @@ key_bindings:
   #- { key: H,      mods: Command,         action: Hide             }
   #- { key: Q,      mods: Command,         action: Quit             }
   #- { key: W,      mods: Command,         action: Quit             }
-  #- { key: F,      mods: Command|Control, action: ToggleFullscreen }
+  - { key: F,      mods: Command, action: ToggleFullscreen }
 
   - { key: Paste,                   action: Paste                            }
   - { key: Copy,                    action: Copy                             }
