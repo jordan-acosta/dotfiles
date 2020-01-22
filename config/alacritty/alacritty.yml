@@ -171,6 +171,7 @@ font:
 draw_bold_text_with_bright_colors: true
 
 schemes:
+    # formerly the default theme
     tomorrow_night_bright: &tomorrow_night_bright
       primary:
         background: '0x000000'
@@ -357,29 +358,34 @@ schemes:
         white:   '0xfdf6e3'
     borland: &borland
       primary:
-        background: '0x1C1EB1'
-        foreground: '0xF7FB6C'
+        background: '0x0120b3'
+        foreground: '0xfefb5f'
       normal:
-        black:   '0x000000'
-        red:     '0xd54e53'
-        green:   '0xb9ca4a'
-        yellow:  '0xe6c547'
-        blue:    '0x7aa6da'
-        magenta: '0xc397d8'
-        cyan:    '0x70c0ba'
-        white:   '0xeaeaea'
+        black:   '0x616161'
+        red:     '0xff8272'
+        green:   '0xb4fa72'
+        yellow:  '0xfefdc2'
+        blue:    '0xa5d5fe'
+        magenta: '0xff8ffd'
+        cyan:    '0xd0d1fe'
+        white:   '0xf1f1f1'
       bright:
-        black:   '0x666666'
-        red:     '0xff3334'
-        green:   '0x9ec400'
-        yellow:  '0xe7c547'
-        blue:    '0x7aa6da'
-        magenta: '0xb77ee0'
-        cyan:    '0x54ced6'
-        white:   '0xffffff'
-      indexed_colors: []
+        black:   '0x8e8e8e'
+        red:     '0xffc4bd'
+        green:   '0xb4fa72'
+        yellow:  '0xfefdc2'
+        blue:    '0xc1e3fe'
+        magenta: '0xffb1fe'
+        cyan:    '0xe5e6fe'
+        white:   '0xfeffff'
+      cursor:
+        text: '0xfeffff'
+        cursor: '0xffb472'
+      selection:
+        text: '0x0120b3'
+        background: '0xb3b3b3'
 
-colors: *solarized_dark
+colors: *borland
 
 # Visual Bell
 #

@@ -2,6 +2,10 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+#
+# Shell
+#
+
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
@@ -28,6 +32,13 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
+# user directory path
+PATH=$PATH:$HOME/bin
+
+#
+# Prompt
+#
+
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
@@ -38,20 +49,13 @@ case "$TERM" in
     xterm-color) color_prompt=yes;;
 esac
 
-# uncomment for a colored prompt, if the terminal has the capability; turned
-# off by default to not distract the user: the focus in a terminal window
-# should be on the output of commands, not on the prompt
-#force_color_prompt=yes
-
-if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
-    else
-	color_prompt=
-    fi
+if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+  # We have color support; assume it's compliant with Ecma-48
+  # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+  # a case would tend to support setf rather than setaf.)
+  color_prompt=yes
+else
+  color_prompt=
 fi
 
 if [ "$color_prompt" = yes ]; then
@@ -82,47 +86,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# some more ls aliases
-alias ll='ls -AlF'
-alias la='ls -A'
-alias l='ls -CF'
-
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-    . /etc/bash_completion
-fi
-
-# fix tmux ssh sessions
-SOCK="/tmp/ssh-agent-$USER-screen"
-if test $SSH_AUTH_SOCK && [ $SSH_AUTH_SOCK != $SOCK ]
-then
-    rm -f /tmp/ssh-agent-$USER-screen
-    ln -sf $SSH_AUTH_SOCK $SOCK
-    export SSH_AUTH_SOCK=$SOCK
-fi
-
-
-# add yarn global bin folder to path
-YARN_BIN=$(yarn global bin)
-if [ -d $YARN_BIN ]; then
-    PATH=$PATH:$YARN_BIN
-fi
-
+# show git status in prompt
 # http://henrik.nyh.se/2008/12/git-dirty-prompt
 # http://www.simplisticcomplexity.com/2008/03/13/show-your-git-branch-name-in-your-prompt/
 #   username@Machine ~/dev/dir[master]$   # clean working directory
@@ -136,8 +100,31 @@ function parse_git_branch {
 }
 export PS1='\u@\h/\W$(parse_git_branch)$ '
 
-# user directory path
-PATH=$PATH:$HOME/bin
+#
+# Aliases
+#
+
+# some more ls aliases
+alias ll='ls -AlF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+#
+# Tools
+#
+
+# fix tmux ssh sessions
+SOCK="/tmp/ssh-agent-$USER-screen"
+if test $SSH_AUTH_SOCK && [ $SSH_AUTH_SOCK != $SOCK ]
+then
+    rm -f /tmp/ssh-agent-$USER-screen
+    ln -sf $SSH_AUTH_SOCK $SOCK
+    export SSH_AUTH_SOCK=$SOCK
+fi
 
 # default editor is neovim, fallback to vim
 [ command -v vim >/dev/null 2>&1 ] &&
@@ -145,31 +132,10 @@ PATH=$PATH:$HOME/bin
 [ command -v nvim >/dev/null 2>&1 ] &&
     export EDITOR=nvim
 
-# golang
-export GOPATH=$HOME/go
-export GOBIN=$GOPATH/bin
-PATH=$PATH:$GOPATH/bin
-
 # docker
 alias docker-rmi-all='docker images --quiet --all | xargs docker rmi --force'
 alias docker-rm-all='docker ps --quiet --all | xargs docker rm --force'
 alias docker-clear='docker-rm-all && docker-rmi-all'
-#docker-machine start default >/dev/null
-#eval "$(docker-machine env default)"
-#dmenv () {
-#    if [ -z "$1" ]
-#    then
-#        return
-#    fi
-#    eval "$(docker-machine env $1)"
-#    echo "docker-machine env for $1 set"
-#}
-
-# python junk
-PATH="$PATH:$HOME/Library/Python/2.7/bin"
-
-# python junk
-PATH="$PATH:$HOME/Library/Python/2.7/bin"
 
 # why homebrew why
 export HOMEBREW_GITHUB_API_TOKEN="e117886c47229132f35cf59c31a4076f3d84251d"
@@ -178,43 +144,44 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
 
-# aws env
-if [ -f ~/.aws/env.bash ]; then
-    . ~/.aws/env.bash
-fi
+#
+# Programming Languages
+#
 
-#pkg-config wat
+# pkg-config wat
+# Not sure why I need this, but I'm afraid to remove it.
 export PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig
 
-# nvm ugh
-# export NVM_DIR=~/.nvm
-# source $(brew --prefix nvm)/nvm.sh
-# test -a ~/nvm/nvm.sh &&
-#     . ~/nvm/nvm.sh
+# golang
+export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
+PATH=$PATH:$GOPATH/bin
 
-# export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+# python
+# use python installed in home dir
+PATH="$PATH:$HOME/Library/Python/2.7/bin"
 
-# ruby junk
-# export PATH="/Users/jordan/.rbenv/shims:${PATH}"
-# export RBENV_SHELL=bash
-# [ -f /usr/local/Cellar/rbenv/1.0.0/libexec/../completions/rbenv.bash ] &&
-#     . /usr/local/Cellar/rbenv/1.0.0/libexec/../completions/rbenv.bash
-# command rbenv rehash 2>/dev/null
-# rbenv() {
-#   local command
-#   command="$1"
-#   if [ "$#" -gt 0 ]; then
-#     shift
-#   fi
-# 
-#   case "$command" in
-#   rehash|shell)
-#     eval "$(rbenv "sh-$command" "$@")";;
-#   *)
-#     command rbenv "$command" "$@";;
-#   esac
-# }
+# nodejs
+# use nvm installed by homebrew
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+# add yarn global bin folder to path
+YARN_BIN=$(yarn global bin)
+if [ -d $YARN_BIN ]; then
+    PATH=$PATH:$YARN_BIN
+fi
 
-# load optional local environment
+#
+# Optional local env
+#
+
 [ -f ~/.bash_local ] &&
     . ~/.bash_local
+
+
+# need the Android SDK in the PATH to support Expo
+# [ -d /Users/jordanacosta/Library/Android/sdk ] &&
+#   PATH=$PATH:/Users/jordanacosta/Library/Android/sdk
+[ -d /Users/jordanacosta/Library/Android/sdk/platform-tools ] &&
+  PATH=$PATH:/Users/jordanacosta/Library/Android/sdk/platform-tools

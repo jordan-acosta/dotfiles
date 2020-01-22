@@ -2,6 +2,7 @@
 " Interface
 set ruler " Show line & column number
 set number
+colorscheme elflord
 
 " Indentation
 set tabstop=4
