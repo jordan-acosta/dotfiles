@@ -153,9 +153,9 @@ fi
 export PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig
 
 # golang
-export GOPATH=$HOME/go
-export GOBIN=$GOPATH/bin
-PATH=$PATH:$GOPATH/bin
+# export GOPATH=$HOME/go
+# export GOBIN=$GOPATH/bin
+# PATH=$PATH:$GOPATH/bin
 
 # python
 # use python installed in home dir
