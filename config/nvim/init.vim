@@ -43,6 +43,9 @@ let g:netrw_rmdir_cmd='rm -r'
 let g:netrw_keepdir= 0
 set autochdir
 
+" work-around for this bug: https://github.com/vim/vim/issues/4832
+let g:netrw_sort_sequence = '[\/]\s'
+
 " vim-plug
 call plug#begin()
 
