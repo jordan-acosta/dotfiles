@@ -12,8 +12,12 @@ autoload -Uz compinit && compinit
 autoload -Uz promptinit && promptinit
 prompt adam2
 
-# enable vim-like command mode
+# enable vi command mode
 bindkey -v
+
+# vi does not allow backspacing to delete characters that were already there before entering input mode
+# this will allow backspaceing like vim
+bindkey -v '^?' backward-delete-char
 
 # Correctly display UTF-8 with combining characters.
 if [[ "$(locale LC_CTYPE)" == "UTF-8" ]]; then
