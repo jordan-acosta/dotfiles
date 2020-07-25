@@ -8,9 +8,23 @@
 # enable completion
 autoload -Uz compinit && compinit
 
+# git info in right prompt
+autoload -Uz vcs_info && vcs_info
+precmd_vcs_info() { vcs_info }
+precmd_functions+=( precmd_vcs_info )
+setopt prompt_subst
+RPROMPT=\$vcs_info_msg_0_
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' stagedstr '%{%F{green}%B%}●%{%b%f%}'
+zstyle ':vcs_info:*' unstagedstr '%{%F{red}%B%}●%{%b%f%}'
+zstyle ':vcs_info:*' formats '%c %u %F{cyan}%r/%b%f'
+zstyle ':vcs_info:*' actionformats '%F{red}%a%f %c %u %F{cyan}%r/%b%f'
+
 # customize prompt
 autoload -Uz promptinit && promptinit
-prompt adam2
+# prompt adam2
+PROMPT='%(?.%F{green}.%F{red})%?%f %B%F{cyan}%~%f%b %# '
 
 # enable vi command mode
 bindkey -v
