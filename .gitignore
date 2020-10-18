@@ -1,5 +1,6 @@
 # neovim
 config/nvim/plugged
+config/coc
 .netrwhist
 plug.vim.old
 
