@@ -397,6 +397,67 @@ schemes:
         text: '0x0120b3'
         background: '0xb3b3b3'
 
+    high_contrast: &high_contrast
+      # Default colors
+      primary:
+        background: '0x444444'
+        foreground: '0xdddddd'
+
+      # Colors the cursor will use if `custom_cursor_colors` is true
+      cursor:
+        text: '0xaaaaaa'
+        cursor: '0xffffff'
+
+      # Normal colors
+      normal:
+        black:   '0x000000'
+        red:     '0xff0000'
+        green:   '0x00ff00'
+        yellow:  '0xffff00'
+        blue:    '0x0000ff'
+        magenta: '0xff00ff'
+        cyan:    '0x00ffff'
+        white:   '0xffffff'
+
+      # Bright colors
+      bright:
+        black:   '0x000000'
+        red:     '0xff0000'
+        green:   '0x00ff00'
+        yellow:  '0xffff00'
+        blue:    '0x0000ff'
+        magenta: '0xff00ff'
+        cyan:    '0x00ffff'
+        white:   '0xffffff'
+
+    nord: &nord
+      # Default colors
+      primary:
+        background: '0x2E3440'
+        foreground: '0xD8DEE9'
+
+      # Normal colors
+      normal:
+        black:   '0x3B4252'
+        red:     '0xBF616A'
+        green:   '0xA3BE8C'
+        yellow:  '0xEBCB8B'
+        blue:    '0x81A1C1'
+        magenta: '0xB48EAD'
+        cyan:    '0x88C0D0'
+        white:   '0xE5E9F0'
+
+      # Bright colors
+      bright:
+        black:   '0x4C566A'
+        red:     '0xBF616A'
+        green:   '0xA3BE8C'
+        yellow:  '0xEBCB8B'
+        blue:    '0x81A1C1'
+        magenta: '0xB48EAD'
+        cyan:    '0x8FBCBB'
+        white:   '0xECEFF4'
+
 colors: *borland
 
 # Visual Bell
