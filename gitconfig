@@ -20,6 +20,7 @@
     br = branch
     ch = checkout
     df = diff
+    cm = commit -S
 
 # colors
 [color]
@@ -41,8 +42,10 @@
     branch = yellow
 [user]
     name = Jordan Acosta
-    email = jordan@solfo.com
+    email = jordanjacosta@gmail.com
 [url "git@github.com:"]
-	insteadof = https://github.com/
+	insteadOf = https://github.com/
 [push]
 	default = simple
+[commit]
+	gpgsign = true

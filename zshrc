@@ -107,5 +107,5 @@ export PATH="/usr/local/opt/terraform@0.11/bin:$PATH"
 # Optional local env
 #
 
-[ -f ~/.bash_local ] &&
-    . ~/.bash_local
+[ -f ~/.zsh_local ] &&
+    . ~/.zsh_local
