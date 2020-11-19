@@ -43,13 +43,19 @@ let g:netrw_rmdir_cmd='rm -r'
 let g:netrw_keepdir= 0
 set autochdir
 
+" work-around for this bug: https://github.com/vim/vim/issues/4832
+let g:netrw_sort_sequence = '[\/]\s'
+
+" Concealing
+set conceallevel=1
+set concealcursor=nvic
+
 " vim-plug
 call plug#begin()
 
 " UI
 Plug 'itchyny/lightline.vim'
 Plug 'airblade/vim-gitgutter'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " utility
 Plug 'ConradIrwin/vim-bracketed-paste'
@@ -59,18 +65,54 @@ Plug 'tpope/vim-surround'
 "Plug 'neomake/neomake'
 
 " language support
-Plug 'fatih/vim-go'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'pangloss/vim-javascript'
-Plug 'carlitux/deoplete-ternjs', { 'do': 'yarn global add tern' }
 Plug 'elzr/vim-json'
 Plug 'fatih/vim-hclfmt', { 'do': 'go get github.com/fatih/hclfmt' }
 Plug 'jparise/vim-graphql'
 Plug 'leafgarland/typescript-vim'
+
 call plug#end()
 
-" deoplete
-let g:deoplete#enable_at_startup = 1
+"
+" coc extensions
+"
+let g:coc_global_extensions = [
+      \  'coc-go',
+      \  'coc-tsserver',
+      \  'coc-json',
+      \  'coc-html',
+      \  'coc-css'
+      \]
 
-" Concealing
-set conceallevel=1
-set concealcursor=nvic
+"
+" vim-go and other Go-related config
+" Mostly stolen from: https://hackernoon.com/my-neovim-setup-for-go-7f7b6e805876
+"
+
+" indentation
+au FileType go set noexpandtab
+au FileType go set shiftwidth=4
+au FileType go set softtabstop=4
+au FileType go set tabstop=4
+
+" special highlighting
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_types = 1
+let g:go_auto_sameids = 1
+
+" imports
+let g:go_fmt_command = "goimports"
+
+" linting
+let g:go_metalinter_autosave = 0
+
+" types and definitions
+let g:go_auto_type_info = 1
