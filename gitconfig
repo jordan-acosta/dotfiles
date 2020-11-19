@@ -49,3 +49,5 @@
 	default = simple
 [commit]
 	gpgsign = true
+[include]
+  path = ~/.git_local
