@@ -153,9 +153,9 @@ fi
 export PKG_CONFIG_PATH=/opt/X11/lib/pkgconfig
 
 # golang
-# export GOPATH=$HOME/go
-# export GOBIN=$GOPATH/bin
-# PATH=$PATH:$GOPATH/bin
+export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
+PATH=$PATH:$GOPATH/bin
 
 # python
 # use python installed in home dir
@@ -184,3 +184,10 @@ fi
 
 [ -f ~/.bash_local ] &&
     . ~/.bash_local
+
+
+# need the Android SDK in the PATH to support Expo
+# [ -d /Users/jordanacosta/Library/Android/sdk ] &&
+#   PATH=$PATH:/Users/jordanacosta/Library/Android/sdk
+[ -d /Users/jordanacosta/Library/Android/sdk/platform-tools ] &&
+  PATH=$PATH:/Users/jordanacosta/Library/Android/sdk/platform-tools
