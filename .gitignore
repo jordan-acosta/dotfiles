@@ -1,14 +1,10 @@
+# only keep certain configs
+# (lots of stuff will get created automatically)
+config/*
+!config/alacritty
+!config/nvim
+
 # neovim
 config/nvim/plugged
-config/coc
-config/exercism
-config/gh
 .netrwhist
 plug.vim.old
-
-# yarn
-config/yarn
-yarnrc
-
-#configstore
-config/configstore
