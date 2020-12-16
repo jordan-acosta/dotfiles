@@ -5,7 +5,9 @@
 # Creates symlinks in ~/.config for config files.
 ###
 
-dir=~/dotfiles
+script=$(readlink -f "$0")
+dir=$(dirname "$script")
+echo $dir
 
 # link dotfiles
 backup=~/dotfiles-backup
