@@ -72,6 +72,7 @@ Plug 'elzr/vim-json'
 Plug 'fatih/vim-hclfmt', { 'do': 'go get github.com/fatih/hclfmt' }
 Plug 'jparise/vim-graphql'
 Plug 'leafgarland/typescript-vim'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 call plug#end()
 
