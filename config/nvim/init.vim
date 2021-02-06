@@ -60,9 +60,6 @@ Plug 'airblade/vim-gitgutter'
 " utility
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'tpope/vim-surround'
-"Plug 'SirVer/ultisnips'
-"Plug 'honza/vim-snippets'
-"Plug 'neomake/neomake'
 
 " language support
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
