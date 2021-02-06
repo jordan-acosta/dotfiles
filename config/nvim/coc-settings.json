@@ -1,0 +1,13 @@
+{
+    "coc.preferences.formatOnSaveFiletypes": [
+        "go",
+        "js",
+        "ts",
+        "json",
+        "html",
+        "css"
+    ],
+    "go.goplsOptions": {
+        "completeUnimported": true
+    }
+}
