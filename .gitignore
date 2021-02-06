@@ -9,5 +9,5 @@ config/nvim/plugged
 .netrwhist
 plug.vim.old
 
-# yarn
+# js
 yarnrc
