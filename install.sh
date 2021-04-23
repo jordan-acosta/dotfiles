@@ -6,7 +6,7 @@
 ###
 
 script=$(readlink -f "$0")
-dir=$(dirname "$script")
+dir=$PWD
 echo $dir
 
 # link dotfiles
@@ -18,6 +18,7 @@ mkdir -p $backup
 echo "...done"
 
 echo "Backing up existing files and creating symlinks:"
+echo $dir
 for file in $files; do
 	echo "Moving ~/.$file to $backup"
 	mv ~/.$file $backup
