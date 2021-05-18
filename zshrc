@@ -57,7 +57,7 @@ SAVEHIST=1000000
 PATH=$PATH:$HOME/bin
 
 # ls colors and aliases
-alias ls='ls -G --color'
+alias ls='ls -G'
 alias ll='ls -AlF'
 alias la='ls -A'
 alias l='ls -CF'
@@ -89,10 +89,6 @@ fi
 alias docker-rmi-all='docker images --quiet --all | xargs docker rmi --force'
 alias docker-rm-all='docker ps --quiet --all | xargs docker rm --force'
 alias docker-clear='docker-rm-all && docker-rmi-all'
-
-# why homebrew why
-export HOMEBREW_GITHUB_API_TOKEN="e117886c47229132f35cf59c31a4076f3d84251d"
-export PATH="/usr/local/opt/terraform@0.11/bin:$PATH"
 
 #
 # Programming Languages
