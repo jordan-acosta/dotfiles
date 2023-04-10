@@ -94,6 +94,9 @@ alias docker-clear='docker-rm-all && docker-rmi-all'
 export HOMEBREW_GITHUB_API_TOKEN="e117886c47229132f35cf59c31a4076f3d84251d"
 export PATH="/usr/local/opt/terraform@0.11/bin:$PATH"
 
+# add homebrew install path
+PATH=/opt/homebrew/bin:$PATH
+
 #
 # Programming Languages
 #
