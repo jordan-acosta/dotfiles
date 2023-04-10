@@ -50,7 +50,10 @@ let g:netrw_sort_sequence = '[\/]\s'
 set conceallevel=1
 set concealcursor=nvic
 
+"
 " vim-plug
+"
+
 call plug#begin()
 
 " UI
@@ -63,16 +66,8 @@ Plug 'tpope/vim-surround'
 
 " language support
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-
-" CoC extensions may obviate the need for these.
-" Will try working without them for a while and see how it goes.
-" Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-" Plug 'pangloss/vim-javascript'
-" Plug 'elzr/vim-json'
-" Plug 'fatih/vim-hclfmt', { 'do': 'go get github.com/fatih/hclfmt' }
-" Plug 'jparise/vim-graphql'
-" Plug 'leafgarland/typescript-vim'
+Plug 'iamcco/markdown-preview.nvim'
+Plug 'earthly/earthly.vim', { 'branch': 'main' }
 
 call plug#end()
 
