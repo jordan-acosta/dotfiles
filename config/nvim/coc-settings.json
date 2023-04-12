@@ -3,5 +3,6 @@
     "go.goplsOptions": {
         "completeUnimported": true
     },
-    "suggest.noselect": true
+    "suggest.noselect": true,
+    "coc.preferences.jumpCommand": "split"
 }
