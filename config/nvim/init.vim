@@ -1,16 +1,12 @@
-" Syntax highlighting
-" Interface
-set ruler " Show line & column number
+" Lines
+set ruler
 set number
-" colorscheme elflord
 
 " Indentation
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
-
-" TODO add custom function for resetting tab widths
 
 " Code Folding
 set foldmethod=indent " fold based on indent
@@ -26,10 +22,6 @@ inoremap <Down> <C-o>gj
 inoremap <Up> <C-o>gk
 vnoremap <Down> gj
 vnoremap <Up> gk
-
-" Omni completion
-"filetype plugin on
-"set omnifunc=syntaxcomplete#Complete
 
 " command bar
 set wildmenu
@@ -97,34 +89,3 @@ let g:coc_global_extensions = [
 " coc-go
 " Weird that I have to add this. Gopls can't do this yet?
 autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
-
-" "
-" " vim-go and other Go-related config
-" " Mostly stolen from: https://hackernoon.com/my-neovim-setup-for-go-7f7b6e805876
-" "
-"
-" " indentation
-" au FileType go set noexpandtab
-" au FileType go set shiftwidth=4
-" au FileType go set softtabstop=4
-" au FileType go set tabstop=4
-"
-" " special highlighting
-" let g:go_highlight_build_constraints = 1
-" let g:go_highlight_extra_types = 1
-" let g:go_highlight_fields = 1
-" let g:go_highlight_functions = 1
-" let g:go_highlight_methods = 1
-" let g:go_highlight_operators = 1
-" let g:go_highlight_structs = 1
-" let g:go_highlight_types = 1
-" let g:go_auto_sameids = 1
-"
-" " imports
-" let g:go_fmt_command = "goimports"
-"
-" " linting
-" let g:go_metalinter_autosave = 0
-"
-" " types and definitions
-" let g:go_auto_type_info = 1
