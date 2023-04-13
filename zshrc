@@ -119,4 +119,4 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # golang
-PATH="$PATH:$(go env GOPATH)/bin"
+PATH="$PATH:$HOME/go/bin"
