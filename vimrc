@@ -1,6 +1,5 @@
 " Syntax highlighting
 syntax on
-color elflord
 
 " Interface
 set ruler " Show line & column number
