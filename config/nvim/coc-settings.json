@@ -4,7 +4,7 @@
         "completeUnimported": true
     },
     "suggest.noselect": true,
-    "coc.preferences.jumpCommand": "split",
+    "coc.preferences.jumpCommand": "tabe",
     "languageserver": {
         "terraform": {
             "command": "terraform-ls",
