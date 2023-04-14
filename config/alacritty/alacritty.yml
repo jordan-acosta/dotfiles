@@ -211,63 +211,6 @@ schemes:
       #
       indexed_colors: []
 
-    falcon: &falcon
-      primary:
-        background: '0x020221'
-        foreground: '0xb4b4b9'
-      cursor:
-        text: '0x020221'
-        cursor: '0xffe8c0'
-      normal:
-        black:   '0x000004'
-        red:     '0xff3600'
-        green:   '0x718e3f'
-        yellow:  '0xffc552'
-        blue:    '0x635196'
-        magenta: '0xff761a'
-        cyan:    '0x34bfa4'
-        white:   '0xb4b4b9'
-      bright:
-        black:   '0x020221'
-        red:     '0xff8e78'
-        green:   '0xb1bf75'
-        yellow:  '0xffd392'
-        blue:    '0x99a4bc'
-        magenta: '0xffb07b'
-        cyan:    '0x8bccbf'
-        white:   '0xf8f8ff'
-        # Colors (Gruvbox dark)
-
-    gruvbox_dark: &gruvbox_dark
-      # Default colors
-      primary:
-        # hard contrast: background = '0x1d2021'
-        background: '0x282828'
-        # soft contrast: background = '0x32302f'
-        foreground: '0xebdbb2'
-
-      # Normal colors
-      normal:
-        black:   '0x282828'
-        red:     '0xcc241d'
-        green:   '0x98971a'
-        yellow:  '0xd79921'
-        blue:    '0x458588'
-        magenta: '0xb16286'
-        cyan:    '0x689d6a'
-        white:   '0xa89984'
-
-      # Bright colors
-      bright:
-        black:   '0x928374'
-        red:     '0xfb4934'
-        green:   '0xb8bb26'
-        yellow:  '0xfabd2f'
-        blue:    '0x83a598'
-        magenta: '0xd3869b'
-        cyan:    '0x8ec07c'
-        white:   '0xebdbb2'
-
     solarized_light: &solarized_light
       # Default colors
       primary:
@@ -324,34 +267,6 @@ schemes:
         cyan:    '0x93a1a1'
         white:   '0xfdf6e3'
 
-    gotham: &gotham
-      # Default colors
-      primary:
-        background: '0x0a0f14'
-        foreground: '0x98d1ce'
-
-      # Normal colors
-      normal:
-        black: '0x0a0f14'
-        red: '0xc33027'
-        green: '0x26a98b'
-        yellow: '0xedb54b'
-        blue: '0x195465'
-        magenta: '0x4e5165'
-        cyan: '0x33859d'
-        white: '0x98d1ce'
-
-      # Bright colors
-      bright:
-        black: '0x10151b'
-        red: '0xd26939'
-        green: '0x081f2d'
-        yellow: '0x245361'
-        blue: '0x093748'
-        magenta: '0x888ba5'
-        cyan: '0x599caa'
-        white: '0xd3ebe9'
-
     borland: &borland
       primary:
         background: '0x0120b3'
@@ -381,66 +296,38 @@ schemes:
         text: '0x0120b3'
         background: '0xb3b3b3'
 
-    high_contrast: &high_contrast
-      # Default colors
+    ubuntu: &ubuntu
+      # 0x Default colors
       primary:
-        background: '0x444444'
-        foreground: '0xdddddd'
+        background: '0x300a24'
+        foreground: '0xeeeeec'
 
-      # Colors the cursor will use if `custom_cursor_colors` is true
+      # 0x Colors the cursor will use if `custom_cursor_colors` is true
       cursor:
-        text: '0xaaaaaa'
-        cursor: '0xffffff'
+        text: '0xbbbbbb'
+        cursor: '0xb4d5ff'
 
-      # Normal colors
+      # 0x Normal colors
       normal:
-        black:   '0x000000'
-        red:     '0xff0000'
-        green:   '0x00ff00'
-        yellow:  '0xffff00'
-        blue:    '0x0000ff'
-        magenta: '0xff00ff'
-        cyan:    '0x00ffff'
-        white:   '0xffffff'
+        black:   '0x2e3436'
+        red:     '0xcc0000'
+        green:   '0x4e9a06'
+        yellow:  '0xc4a000'
+        blue:    '0x3465a4'
+        magenta: '0x75507b'
+        cyan:    '0x06989a'
+        white:   '0xd3d7cf'
 
-      # Bright colors
+      # 0x Bright colors
       bright:
-        black:   '0x000000'
-        red:     '0xff0000'
-        green:   '0x00ff00'
-        yellow:  '0xffff00'
-        blue:    '0x0000ff'
-        magenta: '0xff00ff'
-        cyan:    '0x00ffff'
-        white:   '0xffffff'
-
-    nord: &nord
-      # Default colors
-      primary:
-        background: '0x2E3440'
-        foreground: '0xD8DEE9'
-
-      # Normal colors
-      normal:
-        black:   '0x3B4252'
-        red:     '0xBF616A'
-        green:   '0xA3BE8C'
-        yellow:  '0xEBCB8B'
-        blue:    '0x81A1C1'
-        magenta: '0xB48EAD'
-        cyan:    '0x88C0D0'
-        white:   '0xE5E9F0'
-
-      # Bright colors
-      bright:
-        black:   '0x4C566A'
-        red:     '0xBF616A'
-        green:   '0xA3BE8C'
-        yellow:  '0xEBCB8B'
-        blue:    '0x81A1C1'
-        magenta: '0xB48EAD'
-        cyan:    '0x8FBCBB'
-        white:   '0xECEFF4'
+        black:   '0x555753'
+        red:     '0xef2929'
+        green:   '0x8ae234'
+        yellow:  '0xfce94f'
+        blue:    '0x729fcf'
+        magenta: '0xad7fa8'
+        cyan:    '0x34e2e2'
+        white:   '0xeeeeec'
 
 colors: *borland
 
