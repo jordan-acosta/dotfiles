@@ -28,7 +28,7 @@ set wildmenu
 
 " netrw
 let g:netrw_preview=1
-let g:netrw_liststyle=1
+let g:netrw_liststyle=4
 let g:netrw_winsize=30
 let g:netrw_banner=0
 let g:netrw_rmdir_cmd='rm -r'
@@ -51,6 +51,8 @@ call plug#begin()
 " UI
 Plug 'itchyny/lightline.vim'
 Plug 'airblade/vim-gitgutter'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.5' }
 
 " utility
 Plug 'ConradIrwin/vim-bracketed-paste'
@@ -60,6 +62,7 @@ Plug 'tpope/vim-surround'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'iamcco/markdown-preview.nvim'
 Plug 'earthly/earthly.vim', { 'branch': 'main' }
+Plug 'elixir-editors/vim-elixir'
 
 call plug#end()
 
@@ -89,3 +92,12 @@ let g:coc_global_extensions = [
 " coc-go
 " Weird that I have to add this. Gopls can't do this yet?
 autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
+
+"
+" telescope
+"
+
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
