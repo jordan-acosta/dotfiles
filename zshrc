@@ -33,6 +33,9 @@ bindkey -v
 # this will allow backspaceing like vim
 bindkey -v '^?' backward-delete-char
 
+# vi disables the Ctrl+R history keybinding. Need to re-enable it.
+bindkey "^R" history-incremental-search-backward
+
 # Correctly display UTF-8 with combining characters.
 if [[ "$(locale LC_CTYPE)" == "UTF-8" ]]; then
     setopt COMBINING_CHARS
