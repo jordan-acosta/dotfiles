@@ -1,43 +1,12 @@
-dynamic_title = true
-enable_experimental_conpty_backend = false
+import = [
+    "~/.config/alacritty/themes/borland.toml"
+]
+
 live_config_reload = true
-"window.opacity" = 1.0
 working_directory = "None"
 
 [colors]
 draw_bold_text_with_bright_colors = true
-
-[colors.bright]
-black = "0x8e8e8e"
-blue = "0xc1e3fe"
-cyan = "0xe5e6fe"
-green = "0xb4fa72"
-magenta = "0xffb1fe"
-red = "0xffc4bd"
-white = "0xfeffff"
-yellow = "0xfefdc2"
-
-[colors.cursor]
-cursor = "0xffb472"
-text = "0xfeffff"
-
-[colors.normal]
-black = "0x616161"
-blue = "0xa5d5fe"
-cyan = "0xd0d1fe"
-green = "0xb4fa72"
-magenta = "0xff8ffd"
-red = "0xff8272"
-white = "0xf1f1f1"
-yellow = "0xfefdc2"
-
-[colors.primary]
-background = "0x0120b3"
-foreground = "0xfefb5f"
-
-[colors.selection]
-background = "0xb3b3b3"
-text = "0x0120b3"
 
 [cursor]
 style = "Block"
@@ -47,7 +16,6 @@ unfocused_hollow = true
 log_level = "Warn"
 persistent_logging = false
 print_events = false
-ref_test = false
 render_timer = false
 
 [font]
@@ -589,193 +557,6 @@ hide_when_typing = false
 action = "PasteSelection"
 mouse = "Middle"
 
-[mouse.double_click]
-threshold = 300
-
-[mouse.hints]
-modifiers = "None"
-
-[mouse.triple_click]
-threshold = 300
-
-[schemes.borland.bright]
-black = "0x8e8e8e"
-blue = "0xc1e3fe"
-cyan = "0xe5e6fe"
-green = "0xb4fa72"
-magenta = "0xffb1fe"
-red = "0xffc4bd"
-white = "0xfeffff"
-yellow = "0xfefdc2"
-
-[schemes.borland.cursor]
-cursor = "0xffb472"
-text = "0xfeffff"
-
-[schemes.borland.normal]
-black = "0x616161"
-blue = "0xa5d5fe"
-cyan = "0xd0d1fe"
-green = "0xb4fa72"
-magenta = "0xff8ffd"
-red = "0xff8272"
-white = "0xf1f1f1"
-yellow = "0xfefdc2"
-
-[schemes.borland.primary]
-background = "0x0120b3"
-foreground = "0xfefb5f"
-
-[schemes.borland.selection]
-background = "0xb3b3b3"
-text = "0x0120b3"
-
-[schemes.gruvbox_dark.bright]
-black = "0x928374"
-blue = "0x83a598"
-cyan = "0x8ec07c"
-green = "0xb8bb26"
-magenta = "0xd3869b"
-red = "0xfb4934"
-white = "0xebdbb2"
-yellow = "0xfabd2f"
-
-[schemes.gruvbox_dark.primary]
-background = "0x282828"
-black = "0x282828"
-blue = "0x458588"
-cyan = "0x689d6a"
-foreground = "0xebdbb2"
-green = "0x98971a"
-magenta = "0xb16286"
-red = "0xcc241d"
-white = "0xa89984"
-yellow = "0xd79921"
-
-[schemes.gruvbox_light.bright]
-black = "0x928374"
-blue = "0x076678"
-cyan = "0x427b58"
-green = "0x79740e"
-magenta = "0x8f3f71"
-red = "0x9d0006"
-white = "0x3c3836"
-yellow = "0xb57614"
-
-[schemes.gruvbox_light.normal]
-black = "0xfbf1c7"
-blue = "0x458588"
-cyan = "0x689d6a"
-green = "0x98971a"
-magenta = "0xb16286"
-red = "0xcc241d"
-white = "0x7c6f64"
-yellow = "0xd79921"
-
-[schemes.gruvbox_light.primary]
-background = "0xfbf1c7"
-foreground = "0x3c3836"
-
-[schemes.solarized_dark.bright]
-black = "0x002b36"
-blue = "0x839496"
-cyan = "0x93a1a1"
-green = "0x586e75"
-magenta = "0x6c71c4"
-red = "0xcb4b16"
-white = "0xfdf6e3"
-yellow = "0x657b83"
-
-[schemes.solarized_dark.normal]
-black = "0x073642"
-blue = "0x268bd2"
-cyan = "0x2aa198"
-green = "0x859900"
-magenta = "0xd33682"
-red = "0xdc322f"
-white = "0xeee8d5"
-yellow = "0xb58900"
-
-[schemes.solarized_dark.primary]
-background = "0x002b36"
-foreground = "0x839496"
-
-[schemes.solarized_light.bright]
-black = "0x002b36"
-blue = "0x839496"
-cyan = "0x93a1a1"
-green = "0x586e75"
-magenta = "0x6c71c4"
-red = "0xcb4b16"
-white = "0xfdf6e3"
-yellow = "0x657b83"
-
-[schemes.solarized_light.normal]
-black = "0x073642"
-blue = "0x268bd2"
-cyan = "0x2aa198"
-green = "0x859900"
-magenta = "0xd33682"
-red = "0xdc322f"
-white = "0xeee8d5"
-yellow = "0xb58900"
-
-[schemes.solarized_light.primary]
-background = "0xfdf6e3"
-foreground = "0x586e75"
-
-[schemes.tomorrow_night_bright.bright]
-black = "0x666666"
-blue = "0x7aa6da"
-cyan = "0x54ced6"
-green = "0x9ec400"
-magenta = "0xb77ee0"
-red = "0xff3334"
-white = "0xffffff"
-yellow = "0xe7c547"
-
-[schemes.tomorrow_night_bright.normal]
-black = "0x000000"
-blue = "0x7aa6da"
-cyan = "0x70c0ba"
-green = "0xb9ca4a"
-magenta = "0xc397d8"
-red = "0xd54e53"
-white = "0xeaeaea"
-yellow = "0xe6c547"
-
-[schemes.tomorrow_night_bright.primary]
-background = "0x000000"
-foreground = "0xeaeaea"
-
-[schemes.ubuntu.bright]
-black = "0x555753"
-blue = "0x729fcf"
-cyan = "0x34e2e2"
-green = "0x8ae234"
-magenta = "0xad7fa8"
-red = "0xef2929"
-white = "0xeeeeec"
-yellow = "0xfce94f"
-
-[schemes.ubuntu.cursor]
-cursor = "0xb4d5ff"
-text = "0xbbbbbb"
-
-[schemes.ubuntu.normal]
-black = "0x2e3436"
-blue = "0x3465a4"
-cyan = "0x06989a"
-green = "0x4e9a06"
-magenta = "0x75507b"
-red = "0xcc0000"
-white = "0xd3d7cf"
-yellow = "0xc4a000"
-
-[schemes.ubuntu.primary]
-background = "0x300a24"
-foreground = "0xeeeeec"
-
 [scrolling]
 history = 10000
 multiplier = 3
@@ -783,11 +564,6 @@ multiplier = 3
 [selection]
 save_to_clipboard = false
 semantic_escape_chars = ",│`|:\"' ()[]{}<>"
-
-[visual_bell]
-animation = "EaseOutExpo"
-color = "0xffffff"
-duration = 0
 
 [window]
 decorations = "full"

@@ -123,3 +123,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # golang
 PATH="$PATH:$HOME/go/bin"
+
+# make sure gpg works
+export GPG_TTY=$(tty)
