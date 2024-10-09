@@ -43,7 +43,7 @@
 [user]
     name = Jordan Acosta
     email = jordanjacosta@gmail.com
-	signingkey = CB1F41D3DAE40922
+	signingkey = /Users/jordanacosta/.ssh/id_ed25519.pub
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 [push]
@@ -52,3 +52,5 @@
 	gpgsign = true
 [include]
   path = ~/.git_local
+[gpg]
+	format = ssh

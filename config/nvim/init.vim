@@ -76,6 +76,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gs  :<C-u>CocList -I symbols<cr>
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
@@ -84,9 +85,10 @@ nmap <leader>rn <Plug>(coc-rename)
 let g:coc_global_extensions = [
       \  'coc-go',
       \  'coc-tsserver',
+      \  'coc-prettier',
       \  'coc-json',
-      \  'coc-html',
-      \  'coc-css'
+      \  'coc-html'
+      "\  'coc-css'
       \]
 
 " coc-go
