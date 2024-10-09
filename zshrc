@@ -5,6 +5,15 @@
 # zsh options
 #
 
+# homebrew completions
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+  autoload -Uz compinit
+  compinit
+fi
+
 # enable completion
 autoload -Uz compinit && compinit
 
@@ -126,3 +135,6 @@ PATH="$PATH:$HOME/go/bin"
 
 # make sure gpg works
 export GPG_TTY=$(tty)
+
+# WarpStream
+export PATH="/Users/jordanacosta/.warpstream:$PATH"

@@ -191,3 +191,4 @@ fi
 #   PATH=$PATH:/Users/jordanacosta/Library/Android/sdk
 [ -d /Users/jordanacosta/Library/Android/sdk/platform-tools ] &&
   PATH=$PATH:/Users/jordanacosta/Library/Android/sdk/platform-tools
+. "$HOME/.cargo/env"
