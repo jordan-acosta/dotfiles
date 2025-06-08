@@ -160,6 +160,7 @@ PATH=$PATH:$GOPATH/bin
 # python
 # use python installed in home dir
 PATH="$PATH:$HOME/Library/Python/2.7/bin"
+PATH="$PATH:$HOME/.local/bin/env"
 
 # nodejs
 # use nvm installed by homebrew
@@ -192,3 +193,5 @@ fi
 [ -d /Users/jordanacosta/Library/Android/sdk/platform-tools ] &&
   PATH=$PATH:/Users/jordanacosta/Library/Android/sdk/platform-tools
 . "$HOME/.cargo/env"
+
+. "$HOME/.local/bin/env"

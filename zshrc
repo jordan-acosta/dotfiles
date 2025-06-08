@@ -67,6 +67,7 @@ SAVEHIST=1000000
 
 # user directory path
 PATH=$PATH:$HOME/bin
+PATH="$PATH:$HOME/.local/bin/env"
 
 # ls colors and aliases
 alias ls='ls -G --color'
@@ -138,3 +139,5 @@ export GPG_TTY=$(tty)
 
 # WarpStream
 export PATH="/Users/jordanacosta/.warpstream:$PATH"
+
+. "$HOME/.local/bin/env"
