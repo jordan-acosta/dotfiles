@@ -1,3 +1,8 @@
+" work-around for colorscheme bug introduced in 0.10
+" https://vi.stackexchange.com/questions/45122/why-is-my-terminal-background-color-changing-now-when-i-start-neovim-0-10/45123#45123
+" https://github.com/neovim/neovim/issues/29505
+highlight Normal guibg=NONE guifg=NONE ctermbg=NONE ctermfg=NONE
+
 " Lines
 set ruler
 set number
@@ -103,3 +108,12 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+"
+" lua from here on
+"
+
+" lsp configuration
+lua vim.lsp.enable('taplo')
+
+lua vim.diagnostic.config({ virtual_text = true, float = { border = "shadow" } })
