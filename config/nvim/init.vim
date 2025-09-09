@@ -108,12 +108,3 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-
-"
-" lua from here on
-"
-
-" lsp configuration
-lua vim.lsp.enable('taplo')
-
-lua vim.diagnostic.config({ virtual_text = true, float = { border = "shadow" } })
