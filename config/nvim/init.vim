@@ -69,12 +69,6 @@ Plug 'iamcco/markdown-preview.nvim'
 Plug 'earthly/earthly.vim', { 'branch': 'main' }
 Plug 'elixir-editors/vim-elixir'
 
-" lsp support
-Plug 'neovim/nvim-lspconfig'        " LSP configurations, including Taplo
-Plug 'hrsh7th/nvim-cmp'             " Autocompletion core plugin
-Plug 'hrsh7th/cmp-nvim-lsp'         " LSP source for nvim-cmp
-Plug 'L3MON4D3/LuaSnip'             " Snippet engine (optional, but recommended)
-
 call plug#end()
 
 "
@@ -119,42 +113,7 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 " lua from here on
 "
 
-lua << EOF
+" lsp configuration
+lua vim.lsp.enable('taplo')
 
--- lsp configuration
-
--- autocomplete (this is ridiculous)
-local lspconfig = require('lspconfig')
-local cmp_nvim_lsp = require('cmp_nvim_lsp')
-local capabilities = cmp_nvim_lsp.default_capabilities()
-lspconfig.taplo.setup({
-  capabilities = capabilities,
-  filetypes = { 'toml' },
-})
-local cmp = require'cmp'
-local luasnip = require'luasnip'
-cmp.setup({
-  snippet = {
-    expand = function(args)
-      luasnip.lsp_expand(args.body)
-    end,
-  },
-  sources = {
-    { name = 'nvim_lsp' },
-    { name = 'buffer' },
-    { name = 'path' },
-    { name = 'luasnip' },
-  },
-  mapping = cmp.mapping.preset.insert({
-    ['<C-Space>'] = cmp.mapping.complete(),
-    ['<CR>'] = cmp.mapping.confirm({ select = false }),
-  }),
-})
-vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
-
--- show diagnostics
-vim.diagnostic.config({ virtual_text = true, float = { border = "shadow" } })
-
-vim.lsp.enable('taplo')
-
-EOF
+lua vim.diagnostic.config({ virtual_text = true, float = { border = "shadow" } })
