@@ -93,10 +93,8 @@ then
 fi
 
 # default editor is neovim, fallback to vim
-[ command -v vim >/dev/null 2>&1 ] &&
-    export EDITOR=vim
-[ command -v nvim >/dev/null 2>&1 ] &&
-    export EDITOR=nvim
+[ -n "$(command -v vim)" ] && export EDITOR=vim
+[ -n "$(command -v nvim)" ] && export EDITOR=nvim
 
 # docker
 alias docker-rmi-all='docker images --quiet --all | xargs docker rmi --force'
