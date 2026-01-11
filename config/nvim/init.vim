@@ -65,8 +65,9 @@ Plug 'tpope/vim-surround'
 
 " language support
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'josa42/coc-go', {'branch': 'main'}
+
 Plug 'iamcco/markdown-preview.nvim'
-Plug 'earthly/earthly.vim', { 'branch': 'main' }
 Plug 'elixir-editors/vim-elixir'
 
 call plug#end()

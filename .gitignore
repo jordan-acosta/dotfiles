@@ -1,3 +1,5 @@
+.DS_Store
+
 # only keep certain configs
 # (lots of stuff will get created automatically)
 config/*
