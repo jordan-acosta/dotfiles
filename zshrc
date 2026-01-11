@@ -68,6 +68,7 @@ SAVEHIST=1000000
 # user directory path
 PATH=$PATH:$HOME/bin
 PATH="$PATH:$HOME/.local/bin/env"
+PATH=$PATH:$HOME/.local/bin
 
 # ls colors and aliases
 alias ls='ls -G --color'
@@ -107,6 +108,7 @@ export PATH="/usr/local/opt/terraform@0.11/bin:$PATH"
 
 # add homebrew install path
 PATH=/opt/homebrew/bin:$PATH
+PATH=/opt/homebrew/sbin:$PATH
 
 #
 # Programming Languages
@@ -135,7 +137,6 @@ PATH="$PATH:$HOME/go/bin"
 # make sure gpg works
 export GPG_TTY=$(tty)
 
-# WarpStream
-export PATH="/Users/jordanacosta/.warpstream:$PATH"
-
 . "$HOME/.local/bin/env"
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/jordanacosta/.lmstudio/bin"
