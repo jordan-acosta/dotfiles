@@ -577,3 +577,8 @@ lines = 0
 [window.padding]
 x = 0
 y = 0
+
+[bell]
+animation = "Linear"
+duration = 150
+color = "#FFCC00"
