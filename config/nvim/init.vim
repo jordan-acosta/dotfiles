@@ -70,7 +70,18 @@ Plug 'josa42/coc-go', {'branch': 'main'}
 Plug 'iamcco/markdown-preview.nvim'
 Plug 'elixir-editors/vim-elixir'
 
+Plug 'coder/claudecode.nvim'
+Plug 'folke/snacks.nvim'
+
 call plug#end()
+
+lua << EOF
+require("claudecode").setup({
+  terminal = {
+    provider = "auto",
+  },
+})
+EOF
 
 "
 " coc
