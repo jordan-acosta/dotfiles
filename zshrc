@@ -137,6 +137,5 @@ PATH="$PATH:$HOME/go/bin"
 # make sure gpg works
 export GPG_TTY=$(tty)
 
-. "$HOME/.local/bin/env"
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/jordanacosta/.lmstudio/bin"
