@@ -29,6 +29,12 @@ return {
 
         vim.lsp.enable("gopls")
 
+        -- Show diagnostic text inline, and a bordered float with the source.
+        vim.diagnostic.config({
+            virtual_text = true,
+            float = { border = "rounded", source = true },
+        })
+
         -- Buffer-local LSP keymaps, set when a server attaches
         -- (replacing the coc GoTo / rename mappings).
         vim.api.nvim_create_autocmd("LspAttach", {
@@ -39,6 +45,8 @@ return {
                 vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
                 vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
                 vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+                -- Show the full diagnostic(s) for the current line in a float.
+                vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, opts)
             end,
         })
 
