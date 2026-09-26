@@ -47,6 +47,12 @@ let g:netrw_sort_sequence = '[\/]\s'
 set conceallevel=1
 set concealcursor=nvic
 
+" Auto-reload files changed on disk (e.g. by an external process/agent)
+set autoread
+set updatetime=500
+au CursorHold,CursorHoldI * checktime
+au FocusGained,BufEnter * checktime
+
 "
 " vim-plug
 "
