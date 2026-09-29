@@ -103,7 +103,7 @@ alias docker-rm-all='docker ps --quiet --all | xargs docker rm --force'
 alias docker-clear='docker-rm-all && docker-rmi-all'
 
 # why homebrew why
-export HOMEBREW_GITHUB_API_TOKEN="e117886c47229132f35cf59c31a4076f3d84251d"
+# HOMEBREW_GITHUB_API_TOKEN belongs in ~/.zsh_local (not committed)
 export PATH="/usr/local/opt/terraform@0.11/bin:$PATH"
 
 # add homebrew install path
@@ -132,10 +132,17 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # golang
-PATH="$PATH:$HOME/go/bin"
+PATH="$PATH:/usr/local/go/bin"
 
 # make sure gpg works
 export GPG_TTY=$(tty)
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/jordanacosta/.lmstudio/bin"
+
+# bun completions
+[ -s "/home/jordan/.bun/_bun" ] && source "/home/jordan/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
