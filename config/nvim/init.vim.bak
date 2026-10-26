@@ -110,7 +110,8 @@ let g:coc_global_extensions = [
       \  'coc-tsserver',
       \  'coc-prettier',
       \  'coc-json',
-      \  'coc-html'
+      \  'coc-html',
+      \  'coc-toml'
       "\  'coc-css'
       \]
 
