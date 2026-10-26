@@ -35,6 +35,8 @@ const MAX_PARALLEL_TASKS = 8;
 const MAX_CONCURRENCY = 4;
 const COLLAPSED_ITEM_COUNT = 10;
 const PER_TASK_OUTPUT_CAP = 50 * 1024;
+const SETTLED_EXIT_GRACE_MS = 5000;
+const EXIT_DRAIN_GRACE_MS = 1000;
 
 function formatTokens(count: number): string {
 	if (count < 1000) return count.toString();
@@ -183,7 +185,10 @@ function isFailedResult(result: SingleResult): boolean {
 
 function getResultOutput(result: SingleResult): string {
 	if (isFailedResult(result)) {
-		return result.errorMessage || result.stderr || getFinalOutput(result.messages) || "(no output)";
+		const error = result.errorMessage || result.stderr;
+		const output = getFinalOutput(result.messages);
+		if (error && output) return `${error}\n\nLast output before failure:\n${output}`;
+		return error || output || "(no output)";
 	}
 	return getFinalOutput(result.messages) || "(no output)";
 }
@@ -347,6 +352,22 @@ async function runSingleAgent(
 				stdio: ["ignore", "pipe", "pipe"],
 			});
 			let buffer = "";
+			let finished = false;
+			let settled = false;
+			const timers: NodeJS.Timeout[] = [];
+
+			// Grandchildren (e.g. backgrounded shell commands) can inherit stdout and
+			// keep it open after the subagent exits, so "close" alone may never fire.
+			const finish = (code: number) => {
+				if (finished) return;
+				finished = true;
+				for (const t of timers) clearTimeout(t);
+				if (buffer.trim()) processLine(buffer);
+				buffer = "";
+				proc.stdout.destroy();
+				proc.stderr.destroy();
+				resolve(code);
+			};
 
 			const processLine = (line: string) => {
 				if (!line.trim()) return;
@@ -383,6 +404,17 @@ async function runSingleAgent(
 					currentResult.messages.push(event.message as Message);
 					emitUpdate();
 				}
+
+				if (event.type === "agent_settled" && !settled) {
+					settled = true;
+					timers.push(
+						setTimeout(() => {
+							if (finished) return;
+							proc.kill("SIGTERM");
+							finish(0);
+						}, SETTLED_EXIT_GRACE_MS),
+					);
+				}
 			};
 
 			proc.stdout.on("data", (data) => {
@@ -397,12 +429,15 @@ async function runSingleAgent(
 			});
 
 			proc.on("close", (code) => {
-				if (buffer.trim()) processLine(buffer);
-				resolve(code ?? 0);
+				finish(code ?? 0);
+			});
+
+			proc.on("exit", (code) => {
+				timers.push(setTimeout(() => finish(code ?? (settled ? 0 : 1)), EXIT_DRAIN_GRACE_MS));
 			});
 
 			proc.on("error", () => {
-				resolve(1);
+				finish(1);
 			});
 
 			if (signal) {
@@ -410,8 +445,9 @@ async function runSingleAgent(
 					wasAborted = true;
 					proc.kill("SIGTERM");
 					setTimeout(() => {
-						if (!proc.killed) proc.kill("SIGKILL");
+						if (proc.exitCode === null && proc.signalCode === null) proc.kill("SIGKILL");
 					}, 5000);
+					finish(1);
 				};
 				if (signal.aborted) killProc();
 				else signal.addEventListener("abort", killProc, { once: true });
@@ -419,7 +455,10 @@ async function runSingleAgent(
 		});
 
 		currentResult.exitCode = exitCode;
-		if (wasAborted) throw new Error("Subagent was aborted");
+		if (wasAborted) {
+			currentResult.stopReason = "aborted";
+			currentResult.errorMessage = "Subagent was aborted";
+		}
 		return currentResult;
 	} finally {
 		if (tmpPromptPath)

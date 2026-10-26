@@ -4,7 +4,7 @@ Extensions and agents for [pi](https://github.com/earendil-works/pi), laid out t
 
 | Path | What it is |
 | --- | --- |
-| `agent/extensions/subagent/` | Subagent extension. Adds a `subagent` tool that runs agents in separate `pi` processes, each with its own context. Copied from pi's bundled example (`examples/extensions/subagent/` in pi 1.4.0). |
+| `agent/extensions/subagent/` | Subagent extension. Adds a `subagent` tool that runs agents in separate `pi` processes, each with its own context. Copied from pi's bundled example (`examples/extensions/subagent/` in pi 1.4.0), with a fix for subagents that never return; see [NOTES.md](agent/extensions/subagent/NOTES.md). |
 | `agent/agents/coder.md` | General-purpose implementation agent for the subagent tool, on `cursor/sonnet-5@300k` with low thinking. |
 
 ## Install
