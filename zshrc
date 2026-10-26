@@ -123,8 +123,8 @@ PATH=/opt/homebrew/sbin:$PATH
 # Optional local env
 #
 
-[ -f ~/.zsh_local ] &&
-    . ~/.zsh_local
+[ -f ~/.zshrc.local ] &&
+    . ~/.zshrc.local
 
 # javascript / typescript
 export NVM_DIR="$HOME/.nvm"
