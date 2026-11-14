@@ -11,7 +11,7 @@ dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/agent"
 target=~/.pi/agent
 backup=~/dotfiles-backup/pi
 
-links="extensions/subagent agents/coder.md"
+links="AGENTS.md extensions/subagent agents/coder.md"
 
 for link in $links; do
 	mkdir -p "$(dirname "$target/$link")"
