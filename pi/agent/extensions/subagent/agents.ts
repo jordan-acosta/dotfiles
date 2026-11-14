@@ -13,6 +13,7 @@ export interface AgentConfig {
 	description: string;
 	tools?: string[];
 	model?: string;
+	env?: Record<string, string>;
 	systemPrompt: string;
 	source: "user" | "project";
 	filePath: string;
@@ -36,6 +37,7 @@ type AgentFrontmatter = {
 	description?: unknown;
 	tools?: unknown;
 	model?: unknown;
+	env?: unknown;
 };
 
 /**
@@ -57,6 +59,20 @@ function parseToolList(value: unknown): string[] | undefined {
 		.map((t) => t.trim())
 		.filter(Boolean);
 	return tools.length > 0 ? tools : undefined;
+}
+
+/**
+ * Normalize a frontmatter `env` map to string values for the child process.
+ * Non-map values yield nothing, and non-scalar entries are dropped, for the
+ * same reason as `parseToolList`.
+ */
+function parseEnv(value: unknown): Record<string, string> | undefined {
+	if (!value || typeof value !== "object" || Array.isArray(value)) return undefined;
+	const env: Record<string, string> = {};
+	for (const [key, v] of Object.entries(value)) {
+		if (typeof v === "string" || typeof v === "number" || typeof v === "boolean") env[key] = String(v);
+	}
+	return Object.keys(env).length > 0 ? env : undefined;
 }
 
 function loadAgentsFromDir(dir: string, source: "user" | "project"): AgentConfig[] {
@@ -96,6 +112,7 @@ function loadAgentsFromDir(dir: string, source: "user" | "project"): AgentConfig
 			description: frontmatter.description,
 			tools: parseToolList(frontmatter.tools),
 			model: typeof frontmatter.model === "string" ? frontmatter.model : undefined,
+			env: parseEnv(frontmatter.env),
 			systemPrompt: body,
 			source,
 			filePath,

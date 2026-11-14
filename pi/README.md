@@ -32,7 +32,7 @@ model: cursor/sonnet-5@300k:low
 System prompt.
 ```
 
-The `:low` suffix on `model` sets the thinking level; agent files have no separate thinking field. Pi rereads agent files on every call, so no reload is needed after editing one.
+The `:low` suffix on `model` sets the thinking level; agent files have no separate thinking field. Optional `tools` limits the subagent's tools, and an optional `env` map sets environment variables for its `pi` process (see `coder.md`). Pi rereads agent files on every call, so no reload is needed after editing one.
 
 ## Checking which model a subagent used
 
