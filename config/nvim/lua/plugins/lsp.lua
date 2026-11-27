@@ -6,12 +6,6 @@ return {
         "saghen/blink.cmp",
     },
     config = function()
-        require("mason").setup()
-        -- Auto-install (and, on 0.11+, auto-enable) the listed servers.
-        require("mason-lspconfig").setup({
-            ensure_installed = { "gopls" },
-        })
-
         -- Give every server blink.cmp's completion capabilities.
         vim.lsp.config("*", {
             capabilities = require("blink.cmp").get_lsp_capabilities(),
@@ -26,8 +20,6 @@ return {
                 },
             },
         })
-
-        vim.lsp.enable("gopls")
 
         -- Show diagnostic text inline, and a bordered float with the source.
         vim.diagnostic.config({
@@ -48,6 +40,13 @@ return {
                 -- Show the full diagnostic(s) for the current line in a float.
                 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, opts)
             end,
+        })
+
+        -- Set up Mason and mason-lspconfig after vim.lsp.config / LspAttach
+        -- so auto-enabled servers pick up capabilities, settings, and keymaps.
+        require("mason").setup()
+        require("mason-lspconfig").setup({
+            ensure_installed = { "gopls", "tsc" },
         })
 
         -- Go: organize imports + format on save
